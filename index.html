@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DEVinKnowledge</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <h1>DEVinKnowledge</h1>
+        <h2>Learn, code and save</h2>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <form name="REGform">
+          <div>
+            <div>
+              <label for="">Título:</label>
+              <input
+                id="titulo"
+                name="titulo"
+                type="text"
+                minlength="8"
+                maxlength="64"
+                required
+              />
+            </div>
+            <div>
+              <label for="">Linguagem/skill:</label>
+              <input
+                id="linguagem"
+                name="linguagem"
+                type="text"
+                minlength="8"
+                maxlength="32"
+                required
+              />
+            </div>
+            <div>
+              <label for="">Categoria:</label>
+              <select name="categoria" id="categoria" class="dados" required>
+                <option value="selecione">Selecione Aqui</option>
+                <option value="frontEnd">FrontEnd</option>
+                <option value="backEnd">BackEnd</option>
+                <option value="fullStack ">FullStack</option>
+                <option value="comportamentalSoft">Comportamental/Soft</option>
+              </select>
+            </div>
+            <div>
+              <label for="">Descrição completa:</label>
+              <textarea
+                id="descricao"
+                cols="30"
+                rows="10"
+                minlength="2"
+                maxlength="1024"
+                required
+              ></textarea>
+            </div>
+            <div>
+              <label for="">Vídeo de YouTube:</label>
+              <input id="url" type="url" name="userURL" />
+            </div>
+            <div>
+              <input id="buttonSalvar" type="button" value="Enviar" />
+
+              <input id="buttonLimpar" type="reset" value="Limpar" />
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section>
+        <div id="estatisticas">
+          <ul id="estatistica">
+          
+        </ul>
+        </div>
+      </section>
+
+      <section>
+        <div id="dica">
+          <ul id="lista"></ul>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script src="script.js"></script>
+</html>
