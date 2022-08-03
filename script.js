@@ -1,14 +1,17 @@
 const buttonSalvar = document.querySelector("#buttonSalvar");
-
+const corpo = document.querySelector("#corpo");
 buttonSalvar.addEventListener(
   "click",
-  function () {
+  function (event) {
     CheckValidation();
   },
   false
 );
 
-let dicas = JSON.parse(localStorage.getItem("dicas2")) || [];
+window.onload = function () {
+  listar(dicas);
+};
+let dicas = JSON.parse(localStorage.getItem("dicas3")) || [];
 
 function salvar() {
   let titulo = document.getElementById("titulo").value;
@@ -16,7 +19,12 @@ function salvar() {
   let categoria = document.getElementById("categoria").value;
   let descricao = document.getElementById("descricao").value;
   let url = document.getElementById("url").value;
+  let idDicaEditada = parseInt(document.getElementById("identificador").value);
   let id = dicas.length + 1;
+  if (idDicaEditada > 0) {
+    id = idDicaEditada;
+  }
+
   let dica = {
     titulo: titulo,
     linguagem: linguagem,
@@ -25,11 +33,22 @@ function salvar() {
     url: url,
     id: id,
   };
+  if (idDicaEditada > 0) {
+    dicas.forEach((dicaEditada, index) => {
+      if (dicaEditada.id === idDicaEditada) {
+        dicas[index] = dica;
+      }
+    });
+  } else {
+    dicas.push(dica);
+  }
 
-  dicas.push(dica);
-  localStorage.setItem("dicas2", JSON.stringify(dicas));
+  localStorage.setItem("dicas3", JSON.stringify(dicas));
+  alert("Dica cadastrada com sucesso!");
   listar(dicas);
-  limpar();
+  document.forms["REGform"].reset();
+  document.getElementById("identificador").value = 0;
+  //  limpar(
   estatisticas();
 }
 
@@ -47,16 +66,53 @@ function listar(array) {
   lista.innerHTML = "";
   array.forEach((dica) => {
     let li = document.createElement("li");
-    let button = document.createElement("button");
-    button.addEventListener(
+    let buttonDeletar = document.createElement("button");
+    buttonDeletar.addEventListener(
       "click",
       function () {
-        deletarDica(dica.id);
+        let resultado = confirm(
+          "Você tem certeza que deseja excluir essa dica?"
+        );
+        if (resultado == true) {
+          deletarDica(dica.id);
+          alert("Dica excluída com sucesso!");
+        } else {
+          return false;
+        }
       },
       false
     );
-    button.innerHTML = "Deletar";
-    li.appendChild(button);
+    buttonDeletar.innerHTML = "Deletar";
+    li.appendChild(buttonDeletar);
+
+    if (dica.url !== "") {
+      let buttonVideo = document.createElement("button");
+      buttonVideo.addEventListener(
+        "click",
+        function () {
+          abrirVideo(dica.url);
+        },
+        false
+      );
+      buttonVideo.innerHTML = "Video";
+      li.appendChild(buttonVideo);
+    }
+
+    let buttonEditar = document.createElement("button");
+    buttonEditar.addEventListener(
+      "click",
+      function () {
+        editarDica(dica.id);
+        alert(
+          "As informações da dica selecionada para edição foram enviadas para a barra lateral. " +
+            "Realize as devidas edições e clique em Salvar para finalizar."
+        );
+      },
+      false
+    );
+    buttonEditar.innerHTML = "Editar";
+    li.appendChild(buttonEditar);
+
     li.setAttribute("id", dica.id);
     li.appendChild(document.createTextNode(JSON.stringify(dica)));
     lista.appendChild(li);
@@ -64,17 +120,31 @@ function listar(array) {
 }
 
 function deletarDica(idDica) {
-  alert("entrou deoete" +idDica);
   dicas.splice(idDica - 1, 1);
+  localStorage.setItem("dicas2", JSON.stringify(dicas));
   listar(dicas);
 }
+
+function editarDica(idDica) {
+  let arrayEditado = dicas.filter((elemento) => elemento.id === idDica);
+  let dicaEncontrada = arrayEditado[0];
+  document.getElementById("titulo").value = dicaEncontrada.titulo;
+  document.getElementById("linguagem").value = dicaEncontrada.linguagem;
+  document.getElementById("categoria").value = dicaEncontrada.categoria;
+  document.getElementById("descricao").value = dicaEncontrada.descricao;
+  document.getElementById("url").value = dicaEncontrada.url;
+  document.getElementById("identificador").value = dicaEncontrada.id;
+}
+
 function limpar() {
   document.getElementById("titulo").value = "";
   document.getElementById("linguagem").value = "";
-  document.getElementById("categoria").value = "selecione";
+  document.getElementById("categoria").value = "";
   document.getElementById("descricao").value = "";
   document.getElementById("url").value = "";
+  document.getElementById("identificador").value = 0;
 }
+
 function estatisticas() {
   let estatistica = document.querySelector("#estatistica");
   estatistica.innerHTML = "";
@@ -142,4 +212,8 @@ limparButton.addEventListener(
 
 function limparPesquisa() {
   pesquisa.value = "";
+}
+
+function abrirVideo(url) {
+  window.open(url);
 }

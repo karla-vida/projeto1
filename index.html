@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="Pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DEVinKnowledge</title>
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+    <link rel="shortcut icon" href="icon.png" type="image/png"/>
+   </head>
+  <body id="corpo">
+    <aside>
     <header>
-      <div class="title">
+          <div class="title">
         <h1>DEVinKnowledge</h1>
         <h2>Learn, code and save</h2>
       </div>
@@ -18,33 +20,37 @@
     <main>
       <section>
         <form name="REGform">
-          <div>
+          <div id="form">
             <div>
-              <label for="">Título:</label>
+              <label for="tituloFor">Título:</label>
               <input
+                class="inputForm"
                 id="titulo"
                 name="titulo"
                 type="text"
                 minlength="8"
                 maxlength="64"
                 required
+                placeholder="Digite um título"
               />
             </div>
             <div>
-              <label for="">Linguagem/skill:</label>
+              <label for="linguagemFor">Linguagem/skill:</label>
               <input
+                class="inputForm"
                 id="linguagem"
                 name="linguagem"
                 type="text"
-                minlength="8"
-                maxlength="32"
+                minlength="4"
+                maxlength="16"
                 required
+                placeholder="Digite uma linguagem ou skill"
               />
             </div>
             <div>
-              <label for="">Categoria:</label>
+              <label for="categoriaFor">Categoria:</label>
               <select name="categoria" id="categoria" class="dados" required>
-                <option value="selecione">Selecione Aqui</option>
+                <option value="" disabled selected hidden >Selecione Aqui</option>
                 <option value="frontEnd">FrontEnd</option>
                 <option value="backEnd">BackEnd</option>
                 <option value="fullStack">FullStack</option>
@@ -52,29 +58,33 @@
               </select>
             </div>
             <div>
-              <label for="">Descrição completa:</label>
+              <label for="descricaoFor">Descrição completa:</label>
               <textarea
+                class="inputForm"
                 id="descricao"
                 cols="30"
                 rows="10"
-                minlength="2"
-                maxlength="1024"
+                minlength="32"
+                maxlength="512"
                 required
+                placeholder="Escreva aqui o detalhamento da sua dica..."
               ></textarea>
             </div>
             <div>
               <label for="">Vídeo de YouTube:</label>
-              <input id="url" type="url" name="userURL" />
+              <input class="inputForm" id="url" type="url" name="userURL" placeholder="https://suaurl.com"/>
             </div>
             <div>
-              <input id="buttonSalvar" type="button" value="Enviar" />
-
+              <input type="hidden" id="identificador" value="0">
+              <button id="buttonSalvar">Enviar</button>
               <input id="buttonLimpar" type="reset" value="Limpar" />
             </div>
           </div>
         </form>
       </section>
+    </aside>
 
+    <aside>
       <section>
         <div id="estatisticas">
           <ul id="estatistica"></ul>
@@ -90,11 +100,9 @@
             size="40"
           />
         </div>
-        <div>
-          <button id="buttonPesquisar">Pesquisar</button>
-        </div>
 
         <div>
+          <button id="buttonPesquisar">Pesquisar</button>
           <button id="limparButton">Limpar</button>
         </div>
       </section>
@@ -102,8 +110,10 @@
       <section>
         <div id="dica">
           <ul id="lista"></ul>
+          
         </div>
       </section>
+    </aside>
     </main>
   </body>
   <script src="script.js"></script>
