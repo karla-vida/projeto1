@@ -9,11 +9,14 @@
     <link rel="shortcut icon" href="icon.png" type="image/png"/>
    </head>
   <body id="corpo">
-    <aside>
-    <header>
-          <div class="title">
-        <h1>DEVinKnowledge</h1>
-        <h2>Learn, code and save</h2>
+    <aside class="aside1">
+    <header >
+          <div class="titulo" >
+            <div class="book1"></div> 
+            <div>
+              <h1 id="h1">DEVinKnowledge </h1>
+              <h2 id="h2">Learn, code and save</h2>
+            </div>
       </div>
     </header>
 
@@ -22,8 +25,8 @@
         <form name="REGform">
           <div id="form">
             <div>
-              <label for="tituloFor">Título:</label>
-              <input
+              <label class="label" for="tituloFor">Título:</label>
+              <input 
                 class="inputForm"
                 id="titulo"
                 name="titulo"
@@ -35,7 +38,7 @@
               />
             </div>
             <div>
-              <label for="linguagemFor">Linguagem/skill:</label>
+              <label class="label" for="linguagemFor">Linguagem/skill:</label>
               <input
                 class="inputForm"
                 id="linguagem"
@@ -48,8 +51,8 @@
               />
             </div>
             <div>
-              <label for="categoriaFor">Categoria:</label>
-              <select name="categoria" id="categoria" class="dados" required>
+              <label class="label" for="categoriaFor">Categoria:</label>
+              <select class="inputForm" name="categoria" id="categoria" required>
                 <option value="" disabled selected hidden >Selecione Aqui</option>
                 <option value="frontEnd">FrontEnd</option>
                 <option value="backEnd">BackEnd</option>
@@ -58,7 +61,7 @@
               </select>
             </div>
             <div>
-              <label for="descricaoFor">Descrição completa:</label>
+              <label class="label" for="descricaoFor">Descrição completa:</label>
               <textarea
                 class="inputForm"
                 id="descricao"
@@ -71,7 +74,7 @@
               ></textarea>
             </div>
             <div>
-              <label for="">Vídeo de YouTube:</label>
+              <label class="label" for="">Vídeo de YouTube:</label>
               <input class="inputForm" id="url" type="url" name="userURL" placeholder="https://suaurl.com"/>
             </div>
             <div>
@@ -84,14 +87,14 @@
       </section>
     </aside>
 
-    <aside>
+    <aside class="aside2">
       <section>
         <div id="estatisticas">
           <ul id="estatistica"></ul>
         </div>
       </section>
 
-      <section>
+      <section class="pesquisa">
         <div id="divPesquisa">
           <input
             id="pesquisa"
@@ -102,15 +105,14 @@
         </div>
 
         <div>
-          <button id="buttonPesquisar">Pesquisar</button>
-          <button id="limparButton">Limpar</button>
+          <button id="buttonPesquisar"></button>
+          <button id="limparButton"></button>
         </div>
       </section>
 
-      <section>
+      <section class="dica">
         <div id="dica">
-          <ul id="lista"></ul>
-          
+          <ul id="lista"></ul> 
         </div>
       </section>
     </aside>

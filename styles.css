@@ -1,0 +1,175 @@
+.aside2 {
+  position: absolute;
+  height: 1024px;
+  left: 420px;
+  top: 0px;
+  background: #f6f7f9;
+}
+
+.aside1 {
+  position: absolute;
+  width: 450px;
+  height: 1024px;
+  left: 0px;
+  top: 0px;
+  background: #1e195b;
+}
+
+.titulo {
+  display: inline-flex;
+}
+
+.book1 {
+  width: 90px;
+  height: 96.7px;
+
+  background: url(book.png);
+}
+
+#h1 {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+#h2 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 0;
+}
+
+.label {
+  display: -ms-flexbox;
+  display: flex;
+
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 33px;
+
+  color: #ffffff;
+}
+
+.inputForm {
+  padding-bottom: 5px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 4px solid #d9d9d9;
+  border-radius: 16px;
+  width: 80%;
+}
+
+#buttonSalvar {
+  box-sizing: border-box;
+  background: #def010;
+  border: 2px solid #d9d9d9;
+  border-radius: 64px;
+  flex-direction: row;
+  width: 200px;
+  height: 30px;
+  margin-top: 10px;
+}
+
+#buttonLimpar {
+  box-sizing: border-box;
+  background: #47c061;
+  border: 2px solid #47c061;
+  border-radius: 64px;
+  flex-direction: row;
+  width: 200px;
+  height: 30px;
+  margin-top: 10px;
+}
+
+#estatistica {
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+
+.pEstatistica {
+  width: 118px;
+  height: 29px;
+  margin: 5px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #442f2f;
+}
+
+.pResultadoEstatistica {
+  width: 118px;
+  height: 48px;
+  margin: 5px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+  color: #442f2f;
+}
+.itemEstatistica {
+  background: #ffffff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.pesquisa {
+  display: flex;
+  flex-direction: row;
+}
+
+#pesquisa {
+  box-sizing: border-box;
+  width: 658px;
+  height: 40px;
+  background: #ffffff;
+  border: 3px solid #1e195b;
+  border-radius: 64px;
+}
+
+#buttonPesquisar {
+  box-sizing: border-box;
+  width: 50px;
+  height: 40px;
+  left: 0px;
+  top: 0px;
+  background: #ffffff;
+  border: 3px solid #1e195b;
+  border-radius: 64px;
+  background: url(IconPesquisar.png) center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+}
+
+#limparButton {
+  box-sizing: border-box;
+  width: 50px;
+  height: 40px;
+  left: 0px;
+  top: 0px;
+  background: #ffffff;
+  border: 3px solid #1e195b;
+  border-radius: 64px;
+  background: url(iconLimpar.png) center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+}
+

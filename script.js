@@ -10,6 +10,7 @@ buttonSalvar.addEventListener(
 
 window.onload = function () {
   listar(dicas);
+  estatisticas();
 };
 let dicas = JSON.parse(localStorage.getItem("dicas3")) || [];
 
@@ -150,37 +151,79 @@ function estatisticas() {
   estatistica.innerHTML = "";
 
   let liTotal = document.createElement("li");
-  liTotal.appendChild(document.createTextNode(dicas.length));
+  liTotal.className = "itemEstatistica";
+  let pTotal = document.createElement("p");
+  pTotal.innerText = "Total";
+  pTotal.className = "pEstatistica";
+  liTotal.appendChild(pTotal);
+  let pResultado = document.createElement("p");
+  pResultado.innerText = dicas.length;
+  pResultado.className = "pResultadoEstatistica";
+  liTotal.appendChild(pResultado);
   estatistica.appendChild(liTotal);
 
   let categoriaFrontEnd = dicas.filter(
     (dica) => dica.categoria === "frontEnd"
   ).length;
   let liFrontEnd = document.createElement("li");
-  liFrontEnd.appendChild(document.createTextNode(categoriaFrontEnd));
+  liFrontEnd.className = "itemEstatistica";
+  let pFrontEnd = document.createElement("p");
+  pFrontEnd.innerText = "FrontEnd";
+  pFrontEnd.className = "pEstatistica";
+  liFrontEnd.appendChild(pFrontEnd);
+  let pResultadoFront = document.createElement("p");
+  pResultadoFront.innerText = categoriaFrontEnd;
+  pResultadoFront.className = "pResultadoEstatistica";
+  liFrontEnd.appendChild(pResultadoFront);
   estatistica.appendChild(liFrontEnd);
 
   let categoriaBackEnd = dicas.filter(
     (dica) => dica.categoria === "backEnd"
   ).length;
   let liBackEnd = document.createElement("li");
-  liBackEnd.appendChild(document.createTextNode(categoriaBackEnd));
+  liBackEnd.className = "itemEstatistica";
+
+  let pBackEnd = document.createElement("p");
+  pBackEnd.innerText = "BackEnd";
+  pBackEnd.className = "pEstatistica";
+  liBackEnd.appendChild(pBackEnd);
+  let pResultadoBack = document.createElement("p");
+  pResultadoBack.innerText = categoriaBackEnd;
+  pResultadoBack.className = "pResultadoEstatistica";
+  liBackEnd.appendChild(pResultadoBack);
   estatistica.appendChild(liBackEnd);
+
 
   let categoriaFullStack = dicas.filter(
     (dica) => dica.categoria === "fullStack"
   ).length;
   let liFullStack = document.createElement("li");
-  liFullStack.appendChild(document.createTextNode(categoriaFullStack));
+  liFullStack.className = "itemEstatistica";
+
+  let pFullStack = document.createElement("p");
+  pFullStack.innerText = "FullStack";
+  pFullStack.className = "pEstatistica";
+  liFullStack.appendChild(pFullStack);
+  let pResultadoFull = document.createElement("p");
+  pResultadoFull.innerText = categoriaFullStack;
+  pResultadoFull.className = "pResultadoEstatistica";
+  liFullStack.appendChild(pResultadoFull);
   estatistica.appendChild(liFullStack);
 
   let categoriaComportamentalSoft = dicas.filter(
     (dica) => dica.categoria === "comportamentalSoft"
   ).length;
   let liComportamentalSoft = document.createElement("li");
-  liComportamentalSoft.appendChild(
-    document.createTextNode(categoriaComportamentalSoft)
-  );
+  liComportamentalSoft.className = "itemEstatistica";
+  
+  let pSoftSkill = document.createElement("p");
+  pSoftSkill.innerText = "SoftSkill";
+  pSoftSkill.className = "pEstatistica";
+  liComportamentalSoft.appendChild(pSoftSkill);
+  let pResultadoSoftSkill = document.createElement("p");
+  pResultadoSoftSkill.innerText = categoriaComportamentalSoft;
+  pResultadoSoftSkill.className = "pResultadoEstatistica";
+  liComportamentalSoft.appendChild(pResultadoSoftSkill);
   estatistica.appendChild(liComportamentalSoft);
 }
 
