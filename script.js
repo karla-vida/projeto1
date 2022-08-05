@@ -12,6 +12,7 @@ window.onload = function () {
   listar(dicas);
   estatisticas();
 };
+
 let dicas = JSON.parse(localStorage.getItem("dicas3")) || [];
 
 function salvar() {
@@ -49,7 +50,6 @@ function salvar() {
   listar(dicas);
   document.forms["REGform"].reset();
   document.getElementById("identificador").value = 0;
-  //  limpar(
   estatisticas();
 }
 
@@ -67,7 +67,34 @@ function listar(array) {
   lista.innerHTML = "";
   array.forEach((dica) => {
     let li = document.createElement("li");
+    // li.appendChild(document.createTextNode(JSON.stringify(dica)));
+    li.className = "liLista";
+
+    let h1 = document.createElement("h1");
+    h1.innerText = dica.titulo;
+    h1.className = "h1Lista";
+    li.appendChild(h1);
+
+    let pLinguagem = document.createElement("p");
+    pLinguagem.innerText = "Linguagem/Skill:" + dica.linguagem;
+    pLinguagem.className = "pLinguagem";
+    li.appendChild(pLinguagem);
+
+    let pCategoria = document.createElement("p");
+    pCategoria.innerText = "Categoria:" + dica.categoria;
+    pCategoria.className = "pCategoria";
+    li.appendChild(pCategoria);
+
+    let pDescricao = document.createElement("p");
+    pDescricao.innerText = dica.descricao;
+    pDescricao.className = "pDescricao";
+    li.appendChild(pDescricao);
+
+    let divButton = document.createElement("div");
+    divButton.className = "divButton";
+
     let buttonDeletar = document.createElement("button");
+    buttonDeletar.setAttribute("id", "buttonDeletar");
     buttonDeletar.addEventListener(
       "click",
       function () {
@@ -83,23 +110,10 @@ function listar(array) {
       },
       false
     );
-    buttonDeletar.innerHTML = "Deletar";
-    li.appendChild(buttonDeletar);
-
-    if (dica.url !== "") {
-      let buttonVideo = document.createElement("button");
-      buttonVideo.addEventListener(
-        "click",
-        function () {
-          abrirVideo(dica.url);
-        },
-        false
-      );
-      buttonVideo.innerHTML = "Video";
-      li.appendChild(buttonVideo);
-    }
+    divButton.appendChild(buttonDeletar);
 
     let buttonEditar = document.createElement("button");
+    buttonEditar.setAttribute("id", "buttonEditar");
     buttonEditar.addEventListener(
       "click",
       function () {
@@ -111,11 +125,23 @@ function listar(array) {
       },
       false
     );
-    buttonEditar.innerHTML = "Editar";
-    li.appendChild(buttonEditar);
+    divButton.appendChild(buttonEditar);
 
+    if (dica.url !== "") {
+      let buttonVideo = document.createElement("button");
+      buttonVideo.setAttribute("id", "buttonVideo");
+      buttonVideo.addEventListener(
+        "click",
+        function () {
+          abrirVideo(dica.url);
+        },
+        false
+      );
+      divButton.appendChild(buttonVideo);
+    }
+
+    li.appendChild(divButton);
     li.setAttribute("id", dica.id);
-    li.appendChild(document.createTextNode(JSON.stringify(dica)));
     lista.appendChild(li);
   });
 }
@@ -182,7 +208,6 @@ function estatisticas() {
   ).length;
   let liBackEnd = document.createElement("li");
   liBackEnd.className = "itemEstatistica";
-
   let pBackEnd = document.createElement("p");
   pBackEnd.innerText = "BackEnd";
   pBackEnd.className = "pEstatistica";
@@ -193,14 +218,12 @@ function estatisticas() {
   liBackEnd.appendChild(pResultadoBack);
   estatistica.appendChild(liBackEnd);
 
-
   let categoriaFullStack = dicas.filter(
     (dica) => dica.categoria === "fullStack"
   ).length;
   let liFullStack = document.createElement("li");
   liFullStack.className = "itemEstatistica";
-
-  let pFullStack = document.createElement("p");
+let pFullStack = document.createElement("p");
   pFullStack.innerText = "FullStack";
   pFullStack.className = "pEstatistica";
   liFullStack.appendChild(pFullStack);
@@ -215,8 +238,7 @@ function estatisticas() {
   ).length;
   let liComportamentalSoft = document.createElement("li");
   liComportamentalSoft.className = "itemEstatistica";
-  
-  let pSoftSkill = document.createElement("p");
+let pSoftSkill = document.createElement("p");
   pSoftSkill.innerText = "SoftSkill";
   pSoftSkill.className = "pEstatistica";
   liComportamentalSoft.appendChild(pSoftSkill);

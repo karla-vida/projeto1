@@ -1,18 +1,21 @@
-.aside2 {
-  position: absolute;
-  height: 1024px;
-  left: 420px;
-  top: 0px;
-  background: #f6f7f9;
-}
-
 .aside1 {
   position: absolute;
-  width: 450px;
+  width: 576px;
   height: 1024px;
   left: 0px;
   top: 0px;
   background: #1e195b;
+  margin: auto;
+  padding-left: 30px;
+}
+
+.aside2 {
+  position: absolute;
+  width: 864px;
+  height: 1024px;
+  left: 576px;
+  top: 0px;
+  background: #f6f7f9;
 }
 
 .titulo {
@@ -22,8 +25,7 @@
 .book1 {
   width: 90px;
   height: 96.7px;
-
-  background: url(book.png);
+  background: url(image/book.png);
 }
 
 #h1 {
@@ -49,15 +51,12 @@
 }
 
 .label {
-  display: -ms-flexbox;
   display: flex;
-
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 33px;
-
   color: #ffffff;
 }
 
@@ -93,18 +92,19 @@
 }
 
 #estatistica {
-    display: inline-flex;
-    flex-wrap: wrap;
-  }
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
 .pEstatistica {
-  width: 118px;
+  width: 140px;
   height: 29px;
   margin: 5px;
   font-family: "Inter";
   font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
+  font-weight: 900;
+  font-size: 27px;
   line-height: 29px;
   text-align: center;
   color: #442f2f;
@@ -116,12 +116,13 @@
   margin: 5px;
   font-family: "Inter";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 550;
   font-size: 40px;
   line-height: 48px;
   text-align: center;
   color: #442f2f;
 }
+
 .itemEstatistica {
   background: #ffffff;
   border-radius: 16px;
@@ -134,11 +135,12 @@
 .pesquisa {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 #pesquisa {
   box-sizing: border-box;
-  width: 658px;
+  width: 660px;
   height: 40px;
   background: #ffffff;
   border: 3px solid #1e195b;
@@ -149,12 +151,10 @@
   box-sizing: border-box;
   width: 50px;
   height: 40px;
-  left: 0px;
-  top: 0px;
   background: #ffffff;
   border: 3px solid #1e195b;
   border-radius: 64px;
-  background: url(IconPesquisar.png) center;
+  background: url(image/iconPesquisar.png) center;
   background-repeat: no-repeat;
   background-size: 50%;
 }
@@ -163,13 +163,130 @@
   box-sizing: border-box;
   width: 50px;
   height: 40px;
-  left: 0px;
-  top: 0px;
   background: #ffffff;
   border: 3px solid #1e195b;
   border-radius: 64px;
-  background: url(iconLimpar.png) center;
+  background: url(image/iconLimpar.png) center;
   background-repeat: no-repeat;
   background-size: 50%;
 }
 
+.liLista {
+  width: 802px;
+  height: 382px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+}
+
+.h1Lista {
+  width: 770px;
+  height: 34px;
+  left: 16px;
+  top: 16px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+  text-align: center;
+  color: #000000;
+}
+
+.pLinguagem {
+  width: 170px;
+  height: 24px;
+  left: 16px;
+  top: 58px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  margin-left: 2%;
+}
+
+.pCategoria {
+  width: 170px;
+  height: 24px;
+  left: 148px;
+  top: 90px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  margin-left: 2%;
+}
+
+.pDescricao {
+  height: 150px;
+  left: 16px;
+  right: 10px;
+  top: 130px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  word-break: break-all;
+  white-space: normal;
+  color: #000000;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.divButton {
+  display: flex;
+  justify-content: right;
+}
+
+#buttonDeletar {
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #000000;
+  border-radius: 64px;
+  background: url(image/iconLixeira.png) center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  align-items: right;
+  text-align: right;
+  align-content: right;
+}
+
+#buttonEditar {
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #000000;
+  border-radius: 64px;
+  background: url(image/iconEditar.png) center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  align-items: right;
+  text-align: right;
+  align-content: right;
+}
+
+#buttonVideo {
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #000000;
+  border-radius: 64px;
+  background: url(image/iconVideo.png) center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  align-items: right;
+  text-align: right;
+  align-content: right;
+}
