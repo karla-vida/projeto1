@@ -76,7 +76,7 @@ function listar(array) {
     li.appendChild(h1);
 
     let pLinguagem = document.createElement("p");
-    pLinguagem.innerText = "Linguagem/Skill:" + dica.linguagem;
+    pLinguagem.innerText = "Linguagem/Skill:" + dica.linguagem + "id" + dica.id;
     pLinguagem.className = "pLinguagem";
     li.appendChild(pLinguagem);
 
@@ -148,7 +148,7 @@ function listar(array) {
 
 function deletarDica(idDica) {
   dicas.splice(idDica - 1, 1);
-  localStorage.setItem("dicas2", JSON.stringify(dicas));
+  localStorage.setItem("dicas3", JSON.stringify(dicas));
   listar(dicas);
 }
 
@@ -223,7 +223,7 @@ function estatisticas() {
   ).length;
   let liFullStack = document.createElement("li");
   liFullStack.className = "itemEstatistica";
-let pFullStack = document.createElement("p");
+  let pFullStack = document.createElement("p");
   pFullStack.innerText = "FullStack";
   pFullStack.className = "pEstatistica";
   liFullStack.appendChild(pFullStack);
@@ -238,7 +238,7 @@ let pFullStack = document.createElement("p");
   ).length;
   let liComportamentalSoft = document.createElement("li");
   liComportamentalSoft.className = "itemEstatistica";
-let pSoftSkill = document.createElement("p");
+  let pSoftSkill = document.createElement("p");
   pSoftSkill.innerText = "SoftSkill";
   pSoftSkill.className = "pEstatistica";
   liComportamentalSoft.appendChild(pSoftSkill);
@@ -264,7 +264,10 @@ buttonPesquisar.addEventListener(
 );
 
 function pesquisar() {
-  let arrayFiltrado = dicas.filter((dica) => dica.titulo === pesquisa.value);
+  let arrayFiltrado = dicas.filter((dica) =>
+    dica.titulo.includes(pesquisa.value)
+  );
+
   listar(arrayFiltrado);
 }
 limparButton.addEventListener(
