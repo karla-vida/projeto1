@@ -1,5 +1,10 @@
 const buttonSalvar = document.querySelector("#buttonSalvar");
 const corpo = document.querySelector("#corpo");
+
+let modal = document.getElementById("myModal");
+let span = document.getElementsByClassName("close")[0];
+let mensagemModal = document.getElementById("mensagemModal");
+
 buttonSalvar.addEventListener(
   "click",
   function (event) {
@@ -7,10 +12,19 @@ buttonSalvar.addEventListener(
   },
   false
 );
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
 
 window.onload = function () {
   listar(dicas);
-  estatisticas();
+  gerarEstatisticas();
 };
 
 let dicas = JSON.parse(localStorage.getItem("dicas3")) || [];
@@ -46,11 +60,12 @@ function salvar() {
   }
 
   localStorage.setItem("dicas3", JSON.stringify(dicas));
-  alert("Dica cadastrada com sucesso!");
+  modal.style.display = "block";
+  mensagemModal.innerText = "Dica salva com sucesso";
   listar(dicas);
   document.forms["REGform"].reset();
   document.getElementById("identificador").value = 0;
-  estatisticas();
+  gerarEstatisticas();
 }
 
 function CheckValidation() {
@@ -67,7 +82,6 @@ function listar(array) {
   lista.innerHTML = "";
   array.forEach((dica) => {
     let li = document.createElement("li");
-    // li.appendChild(document.createTextNode(JSON.stringify(dica)));
     li.className = "liLista";
 
     let h1 = document.createElement("h1");
@@ -76,7 +90,7 @@ function listar(array) {
     li.appendChild(h1);
 
     let pLinguagem = document.createElement("p");
-    pLinguagem.innerText = "Linguagem/Skill:" + dica.linguagem + "id" + dica.id;
+    pLinguagem.innerText = "Linguagem/Skill:" + dica.linguagem;
     pLinguagem.className = "pLinguagem";
     li.appendChild(pLinguagem);
 
@@ -103,7 +117,8 @@ function listar(array) {
         );
         if (resultado == true) {
           deletarDica(dica.id);
-          alert("Dica excluída com sucesso!");
+          modal.style.display = "block";
+          mensagemModal.innerText = "Dica excluída com sucesso!";
         } else {
           return false;
         }
@@ -150,6 +165,7 @@ function deletarDica(idDica) {
   dicas.splice(idDica - 1, 1);
   localStorage.setItem("dicas3", JSON.stringify(dicas));
   listar(dicas);
+  gerarEstatisticas();
 }
 
 function editarDica(idDica) {
@@ -172,7 +188,7 @@ function limpar() {
   document.getElementById("identificador").value = 0;
 }
 
-function estatisticas() {
+function gerarEstatisticas() {
   let estatistica = document.querySelector("#estatistica");
   estatistica.innerHTML = "";
 

@@ -19,7 +19,6 @@
             </div>
       </div>
     </header>
-
     <main>
       <section>
         <form name="REGform">
@@ -80,20 +79,24 @@
             <div>
               <input type="hidden" id="identificador" value="0">
               <button id="buttonSalvar">Enviar</button>
+              <div id="myModal" class="modal"> 
+                <div class="modal-content">
+                  <span class="close">x</span>
+                  <h1 id="mensagemModal"></h1>
+                </div>
+              </div>  
               <input id="buttonLimpar" type="reset" value="Limpar" />
             </div>
           </div>
         </form>
       </section>
     </aside>
-
     <aside class="aside2">
       <section>
         <div id="estatisticas">
           <ul id="estatistica"></ul>
         </div>
       </section>
-
       <section class="pesquisa">
         <div id="divPesquisa">
           <input
@@ -103,13 +106,11 @@
             size="40"
           />
         </div>
-
         <div>
           <button id="buttonPesquisar"></button>
           <button id="limparButton"></button>
         </div>
       </section>
-
       <section class="dica">
         <div id="dica">
           <ul id="lista"></ul> 

@@ -75,19 +75,19 @@ A aplicação que deverá ser realizada **individualmente** deve contemplar os s
 
 A aplicação deverá conter os requisitos apresentados anteriormente, sendo codificada em html, css, javascript e markdown (para o readme.md). As imagens a seguir demonstram exemplos da aplicação que deverá ser desenvolvida.
 align="center
-![Imagem 1: Criação/Inserção de uma dica](C:\Users\karla\Desktop\devinHouse\projeto1\image\img1.png)
+![Imagem 1: Criação/Inserção de uma dica](image/img1.png)
 
 
-![Imagem 2: Listagem das dicas]()
+![Imagem 2: Listagem das dicas](image/img2.png)
 
 
-![Imagem 3: Editando uma dica](C:\Users\karla\Desktop\devinHouse\projeto1\image\img3.png)
+![Imagem 3: Editando uma dica](image/img3.png)
 
 
-![Imagem 4: Deletando uma dica](C:\Users\karla\Desktop\devinHouse\projeto1\image\img4.png)
+![Imagem 4: Deletando uma dica](image/img4.png)
 
 
-![Imagem 5: Buscando por uma dica](C:\Users\karla\Desktop\devinHouse\projeto1\image\img5.png)
+![Imagem 5: Buscando por uma dica](image/img5.png)
 
 
 Você não precisa seguir exatamente o mockup apresentado nas imagens anteriores. Você está livre para usar a sua criatividade na construção da aplicação, desde que seja realizada individualmente e que contemple todos os requisitos da aplicação.
