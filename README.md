@@ -74,7 +74,7 @@ A aplicação que deverá ser realizada **individualmente** deve contemplar os s
 ## ROTEIRO DA APLICAÇÃO
 
 A aplicação deverá conter os requisitos apresentados anteriormente, sendo codificada em html, css, javascript e markdown (para o readme.md). As imagens a seguir demonstram exemplos da aplicação que deverá ser desenvolvida.
-align="center
+
 ![Imagem 1: Criação/Inserção de uma dica](image/img1.png)
 
 
